@@ -1,0 +1,10 @@
+{
+  "tickers": ["SOFI", "SPY"],
+  "interval": "15min",
+  "api_key": "4828c9781da14dacac0687b527f49a7f",
+  "telegram": {
+    "bot_token": "7868003798:AAE_BgIGyNyIkYzTZRrEswDXLFalN0s1dDQ",
+    "chat_id": "8081051454"
+  },
+  "output_to_drive": true
+}

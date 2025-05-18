@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "chartbotdriveaccess",
+  "private_key_id": "44caf5bbe4795d596f97b84d2116123888bbc064",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDFHJV4dGGi8IiB\nqEbW730cFYb/iM6ECfS4ctcGEtXogxcD1w6aYStI5Be0os7YeN2d5R0G/sN0n5vB\ndwI1AnHXuWWGEO/svuqQ/S9slPNPce2wwmSO0TChNkOJkzFIvlwYGSu/QoSA7YBF\nM6knaEdvKq6NRtnEoHTtJyXqdcpOFwORjq9DV6hJPxrvkSwRdpFKj2sr6XwBkRnt\nbTpmGxowyVKwUe0MDgJwSQ7I6GZ0EeRg/hpTIJpL/nS4NGHHC2orc0wIQiGra1ED\nfAYNkF45L63hYQ2o4nLHUdfiEOKwvUsLw1gBX1Ijp5M2su9oPkIvgOgCcdrNFqVe\nSq+bBF5LAgMBAAECggEANOX65xy0pznOKJ20hTI4bTUJycI5Sg4x8t4+/o5HgeLM\nZmdsr9mr+B/ejMe0ozusnhdCtwHgCohbEIyTtw405yQGLviUqwCBiu+nrog60/NL\nSsignANf/aPGdEFgVJlhtcXri6SaUs9qQSggGUdPBHJ77cY54x78wjhjYIzEAjiK\nJlbHIbRwdPORRAZoG+bEKoGI21WttHfltOEcd7Lt1jZCGMT2p1TR1XmYG4p7tQr0\noy9yBtVQSnJnb+h2KaB3zu0pde91WY5x0TwoPqbuSjjHyQm1Siimb9uD9eikg6jl\naEKEG2x2E68Ka03Jfx/NMMCL465KiQmgdoYT8S49IQKBgQDtiNWwae+CNIaPNSpB\nSTQj2a3XocNkO8sDkA7Bh2ROYOjwpKFxSTNsRnUq2aiSpSwRSYf9EjNlRYFJwgMz\nCOxAW4Zyq2yIL00NJF7XkmsMAr9/fVRQr2swAoNnLw5buzSiI+IUMXju3uYBLSOj\n/r3JgJ1SNPOaPymnoqg4jBmwZwKBgQDUb0uiVAcP4NhcV30KEmRPur1QR/jl2HCH\nPrQYrR47wWDBxqcAcZWTvi83hi4UrIIf+JpPdzLaUdi5C/frswV3fQ/Vpkvqg7Ck\no+6kGxegGKRvVu2dL/2+bIOg0+VwezCdAwMk/BTxcYMgWtV/gdHNYyz+P7Ep6n7f\nVtDyu0dkfQKBgDzQer1W8f4pCoZhuzbJ0jKXib2aadcgw+JeoJiF3HWAtELgM4E4\nl5TSGS9mWJVq+nRWmh196nC0Mdy7cmw/jZUQmcSEBR581cJWnH2evA9wKK0wXkTm\nFJBPJGtnjcqIjHoyq7A11lt57/M/Jk/XaanMZvrkGbZVE4oax+zqWa1jAoGAfi+y\nHLWPEFZ+DrQFWUM9hMKnC5YE+frMNPoBHptO1y3yHIi00KWntQAGqhOxMaSbEwSo\nHMXwVhDCDIFYfhB0Edse2ckTVTVuaw3Zhm91ZCrfGifnszQ7pK5urczQgDUc1ldg\nucpnYlgMDN8H7NqfVkIwCsKoqP5a6K14JocqTD0CgYB9RWjJejUuY/By25m2rKj/\nl8RD73WgtXCVxAbhhaZXypbTkazvhyHd8RDv5t/9Fz9XCuL0W92wUT4ralI14Q4/\nnT/pyrZDpuB6McyiLcBOVBrYzYzdeM9QVjwT0G+atVa2lhoAEzeH8xejH7RepRjH\nbBwDHTkgihoVGE6bve+m/A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "chart-bot-service@chartbotdriveaccess.iam.gserviceaccount.com",
+  "client_id": "115310765698002531494",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/chart-bot-service%40chartbotdriveaccess.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
