@@ -1,20 +1,32 @@
 import os
-import requests
+import pandas as pd
+import time
+from scripts.analysis import analyze_ticker
+from utils.telegram import send_telegram_message
 
-# Load from Railway environment
-BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+WATCHLIST_FILE = 'watchlist.csv'
+INTERVAL = 15 * 60  # 15 minutes
 
-def send_telegram_message(message):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    payload = {
-        "chat_id": CHAT_ID,
-        "text": message,
-        "parse_mode": "Markdown"
-    }
-    response = requests.post(url, data=payload)
-    print("Status:", response.status_code)
-    print("Response:", response.text)
+def load_watchlist():
+    if os.path.exists(WATCHLIST_FILE):
+        return pd.read_csv(WATCHLIST_FILE)['ticker'].dropna().tolist()
+    else:
+        return []
 
-# Send test message
-send_telegram_message("✅ Chart Bot test message: Telegram setup is working!")
+def main():
+    send_telegram_message("✅ Chart Bot is now running on Railway.")
+    while True:
+        tickers = load_watchlist()
+        for ticker in tickers:
+            try:
+                print(f"🔍 Analyzing {ticker}...")
+                result = analyze_ticker(ticker)
+                send_telegram_message(result)
+            except Exception as e:
+                send_telegram_message(f"⚠️ Error analyzing {ticker}: {e}")
+        print(f"⏱️ Sleeping for {INTERVAL / 60} minutes...\n")
+        time.sleep(INTERVAL)
+
+if __name__ == "__main__":
+    main()
+
