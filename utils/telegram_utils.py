@@ -5,7 +5,7 @@ def send_telegram_message(message):
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
-    print(f"📨 Preparing to send Telegram message...")
+    print("📨 Preparing to send Telegram message...")
     print(f"🔑 Token: {bot_token}")
     print(f"🆔 Chat ID: {chat_id}")
 
