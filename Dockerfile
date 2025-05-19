@@ -1,21 +1,16 @@
-# Use the official Python image
+# Use official Python slim image
 FROM python:3.9-slim
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container
+# Copy all files into the container
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose a port (not strictly necessary for Telegram bots, but standard practice)
-EXPOSE 80
-
-# Run the main Python script
-COPY . /app
-WORKDIR /app
-RUN pip install --no-cache-dir -r requirements.txt
+# Run your bot
 CMD ["python", "chart_bot.py"]
+ 
 
