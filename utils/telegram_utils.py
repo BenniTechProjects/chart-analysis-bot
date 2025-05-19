@@ -1,3 +1,10 @@
+print(f"🔁 Calling Telegram send...")
+
+# AFTER response
+print(f"📬 Telegram response status: {response.status_code}")
+print(f"📩 Telegram response body: {response.text}")
+
+
 import os
 import requests
 

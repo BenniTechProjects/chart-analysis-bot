@@ -10,8 +10,8 @@ WATCHLIST = ["SOFI", "SPY"]
 
 def main():
     print("🚀 Bot is running...")
-    print("📨 Telegram Bot Token:", os.getenv("TELEGRAM_BOT_TOKEN"))
-    print("👤 Telegram Chat ID:", os.getenv("TELEGRAM_CHAT_ID"))
+    print("📨 Telegram Bot Token:", os.getenv("TELEGRAM_BOT_TOKEN", "MISSING_TOKEN"))
+    print("👤 Telegram Chat ID:", os.getenv("TELEGRAM_CHAT_ID", "MISSING_ID"))
 
     for ticker in WATCHLIST:
         print(f"📈 Analyzing {ticker}...")
