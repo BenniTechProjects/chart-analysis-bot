@@ -14,4 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run the main Python script
-CMD ["python", "run.py"]
+COPY . /app
+WORKDIR /app
+RUN pip install --no-cache-dir -r requirements.txt
+CMD ["python", "chart_bot.py"]
+
