@@ -1,3 +1,8 @@
+import os
+print("Bot starting up...")
+print("TELEGRAM_BOT_TOKEN:", os.getenv("TELEGRAM_BOT_TOKEN"))
+print("TELEGRAM_CHAT_ID:", os.getenv("TELEGRAM_CHAT_ID"))
+
 import time
 import os
 from scripts.analysis import analyze_chart
