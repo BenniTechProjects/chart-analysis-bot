@@ -5,18 +5,18 @@ from utils.telegram_utils import send_telegram_message
 
 WATCHLIST = ["SOFI", "SPY"]
 
-def run_bot_once():
-    print("🤖 Bot running once...")
+def main():
+    print("🤖 Bot is running...")
     print("📡 Telegram Bot Token:", os.getenv("TELEGRAM_BOT_TOKEN"))
     print("🆔 Telegram Chat ID:", os.getenv("TELEGRAM_CHAT_ID"))
 
     for ticker in WATCHLIST:
         print(f"🔍 Analyzing {ticker}...")
         result = analyze_chart(ticker)
-        print(f"✅ Result for {ticker}:", result)
+        print("✅ Result:", result)
 
         message = (
-            f"*{result['ticker']} Analysis*\n"
+            f"*{result['ticker']}* Analysis\n"
             f"Support Levels: {result['support']}\n"
             f"Resistance Levels: {result['resistance']}\n"
             f"Signal: *{result['signal']}*\n"
@@ -27,11 +27,7 @@ def run_bot_once():
         send_telegram_message(message)
         time.sleep(1)
 
-def main():
-    while True:
-        run_bot_once()
-        print("🕒 Sleeping 60 seconds before next run...")
-        time.sleep(60)  # Delay between cycles
-
 if __name__ == "__main__":
+    print("Running chart bot")
     main()
+
