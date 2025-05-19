@@ -1,10 +1,3 @@
-print(f"🔁 Calling Telegram send...")
-
-# AFTER response
-print(f"📬 Telegram response status: {response.status_code}")
-print(f"📩 Telegram response body: {response.text}")
-
-
 import os
 import requests
 
@@ -13,7 +6,7 @@ def send_telegram_message(message):
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
     print("📨 Preparing to send Telegram message...")
-    print(f"🔑 Token: {bot_token}")
+    print(f"🔐 Token: {bot_token}")
     print(f"🆔 Chat ID: {chat_id}")
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
