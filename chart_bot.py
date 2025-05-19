@@ -1,45 +1,27 @@
-import sys
-import os
-import time
-from scripts.analysis import analyze_chart
-from utils.telegram_utils import send_telegram_message
-
-# Ensure all print output appears in Railway logs
-sys.stdout = sys.stderr
-
-WATCHLIST = ["SOFI", "SPY"]
-
 def main():
-    print("🚀 Bot is starting...", flush=True)
-
-    # Log environment variables
-    bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
-    print(f"🧪 TELEGRAM_BOT_TOKEN: {bot_token}", flush=True)
-    print(f"🧪 TELEGRAM_CHAT_ID: {chat_id}", flush=True)
-
-    # Send test message
-    print("📨 Sending test message to Telegram...", flush=True)
-    send_telegram_message("✅ Bot deployed and ready!")
-
-    print("🤖 Running chart analysis...", flush=True)
+    print("🌿 Bot is running...")
+    print("🤖 Telegram Bot Token:", os.getenv("TELEGRAM_BOT_TOKEN"))
+    print("🆔 Telegram Chat ID:", os.getenv("TELEGRAM_CHAT_ID"))
 
     for ticker in WATCHLIST:
-        print(f"📊 Analyzing {ticker}...", flush=True)
-        result = analyze_chart(ticker)
-        print(f"✅ Result for {ticker}: {result}", flush=True)
+        print(f"📊 Analyzing {ticker}...")
+        try:
+            result = analyze_chart(ticker)
+            print(f"✅ Result: {result}")
 
-        message = (
-            f"*{result['ticker']}* Analysis\n"
-            f"Support Levels: {result['support']}\n"
-            f"Resistance Levels: {result['resistance']}\n"
-            f"Signal: *{result['signal']}*\n"
-            f"Target Price: {result['target']}"
-        )
+            message = (
+                f"*{result['ticker']} Analysis*\n"
+                f"Support Levels: {result['support']}\n"
+                f"Resistance Levels: {result['resistance']}\n"
+                f"Signal: *{result['signal']}*\n"
+                f"Target Price: {result['target']}"
+            )
 
-        print(f"📤 Sending message:\n{message}", flush=True)
-        send_telegram_message(message)
-        time.sleep(1)  # Respect rate limits
+            print(f"📤 Sending message:\n{message}")
+            send_telegram_message(message)
 
-if __name__ == "__main__":
-    main()
+        except Exception as e:
+            print(f"❌ Error while processing {ticker}: {e}")
+
+        time.sleep(1)  # Delay to avoid Telegram rate limits
+
