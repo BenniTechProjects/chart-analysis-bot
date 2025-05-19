@@ -1,4 +1,3 @@
-
 import os
 import time
 from scripts.analysis import analyze_chart
@@ -33,7 +32,7 @@ def main():
             f"Target Price: {result['target']}"
         )
 
-        print(f"📤 Sending message:\n{message}")
+        print(f"📨 Sending message:\n{message}")
         send_telegram_message(message)
         time.sleep(1)
 
