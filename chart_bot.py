@@ -1,3 +1,4 @@
+
 import os
 import time
 from scripts.analysis import analyze_chart
@@ -21,14 +22,18 @@ def main():
         print(f"✅ Result: {result}")
 
         message = (
-            f"*{result['ticker']} Analysis*\n"
-            f"Support Levels: {result['support']}\n"
-            f"Resistance Levels: {result['resistance']}\n"
-            f"Signal: *{result['signal']}*\n"
+            f"*{result['ticker']} Analysis*
+"
+            f"Support Levels: {result['support']}
+"
+            f"Resistance Levels: {result['resistance']}
+"
+            f"Signal: *{result['signal']}*
+"
             f"Target Price: {result['target']}"
         )
 
-        print(f"📨 Sending message:\n{message}")
+        print(f"📤 Sending message:\n{message}")
         send_telegram_message(message)
         time.sleep(1)
 
