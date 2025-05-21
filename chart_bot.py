@@ -1,46 +1,52 @@
 import os
 import time
+from scripts.analysis import analyze_chart
 from utils.telegram_utils import send_telegram_message
 
-print("✅ chart_bot.py loaded.", flush=True)
+print("✅ chart_bot.py loaded.")
+print("✅ Imports successful.")
 
-WATCHLIST = ["TEST"]
+WATCHLIST = ["SOFI", "SPY"]
 
 def main():
-    print("🚀 Bot launched successfully.", flush=True)
+    print("🤖 Bot is running...")
 
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "MISSING_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID", "MISSING_ID")
-    print(f"🔑 Token: {bot_token[:10]}...", flush=True)
-    print(f"🆔 Chat ID: {chat_id}", flush=True)
-
-    send_telegram_message("🚨 TEST ALERT FROM RAILWAY BOT!")
+    print("🔐 Telegram Bot Token:", bot_token)
+    print("💬 Telegram Chat ID:", chat_id)
 
     for ticker in WATCHLIST:
-        print(f"📈 Simulating analysis for {ticker}...", flush=True)
+        print(f"📉 Analyzing {ticker}...")
+        result = analyze_chart(ticker)
+        print(f"📊 Raw result for {ticker}: {result}")
 
-        result = {
-            "ticker": ticker,
-            "support": [4.5, 4.0, 3.5],
-            "resistance": [5.5, 6.0, 6.5],
-            "signal": "CALL",
-            "target": 5.75
-        }
+        if result is None:
+            print(f"⚠️ No result for {ticker}, skipping.")
+            continue
 
-        print(f"✅ Mock result ready: {result}", flush=True)
-
+        print(f"✅ Result: {result}")
         message = (
-            f"*{result['ticker']}* Analysis\n"
-            f"Support Levels: {result['support']}\n"
-            f"Resistance Levels: {result['resistance']}\n"
-            f"Signal: *{result['signal']}*\n"
+            f"*{result['ticker']} Analysis*
+"
+            f"Support Levels: {result['support']}
+"
+            f"Resistance Levels: {result['resistance']}
+"
+            f"Signal: *{result['signal']}*
+"
             f"Target Price: {result['target']}"
         )
 
-        print(f"📤 Sending message to Telegram:\n{message}", flush=True)
+        print(f"📤 Sending message:
+{message}")
         send_telegram_message(message)
         time.sleep(1)
 
+    # TEMP TEST MESSAGE
+    print("📨 Sending test deployment message...")
+    send_telegram_message("✅ Bot deployed successfully and Telegram is working!")
+
 if __name__ == "__main__":
-    print("🟣 Entering main()...", flush=True)
+    print("🧠 Entering main()...")
     main()
