@@ -47,6 +47,13 @@ def main():
     print("📨 Sending test deployment message...")
     send_telegram_message("✅ Bot deployed successfully and Telegram is working!")
 
+import time
+
 if __name__ == "__main__":
     print("🧠 Entering main()...")
     main()
+    print("🌀 Entering sleep loop to keep container alive...")
+    while True:
+        time.sleep(60)
+
+
