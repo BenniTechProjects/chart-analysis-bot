@@ -8,6 +8,7 @@ print("🔁 Starting test run...")
 
 WATCHLIST = ["TEST"]
 
+send_telegram_message("🚨 TEST ALERT FROM RAILWAY BOT!")
 def main():
     print("🚀 Bot launched successfully.")
 
