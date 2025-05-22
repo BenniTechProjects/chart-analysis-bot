@@ -1,38 +1,30 @@
+import yfinance as yf
 import numpy as np
 import pandas as pd
-import yfinance as yf
 
 def analyze_chart(ticker):
     print(f"🔍 Running analysis for: {ticker}")
-
     try:
-        # Download historical data (15m interval, past 5 days)
-        df = yf.download(ticker, interval="15m", period="5d", progress=False)
-        if df.empty:
-            print(f"⚠️ No data returned for {ticker}")
+        data = yf.download(ticker, period="1mo", interval="1d", auto_adjust=True)
+        if data.empty or len(data) < 10:
+            print("🚫 Not enough data.")
             return None
 
-        df['EMA9'] = df['Close'].ewm(span=9, adjust=False).mean()
-        df['EMA20'] = df['Close'].ewm(span=20, adjust=False).mean()
-        df['EMA200'] = df['Close'].ewm(span=200, adjust=False).mean()
+        close_prices = data['Close']
 
-        support = df['Close'].rolling(window=15).min().dropna().tail(3).values
-        resistance = df['Close'].rolling(window=15).max().dropna().tail(3).values
-
-        current_price = df['Close'].iloc[-1]
-        signal = "CALL" if current_price > df['EMA9'].iloc[-1] and current_price > df['EMA20'].iloc[-1] else "PUT"
-
-        target = df['Close'].rolling(window=20).mean().iloc[-1]
+        support_levels = np.round(close_prices.sort_values().head(3).tolist(), 2)
+        resistance_levels = np.round(close_prices.sort_values(ascending=False).head(3).tolist(), 2)
+        target = float(np.round(close_prices.mean(), 2))
+        signal = "CALL" if close_prices.iloc[-1] > close_prices.mean() else "PUT"
 
         return {
             "ticker": ticker,
-            "support": [float(x) for x in support],
-            "resistance": [float(x) for x in resistance],
+            "support": support_levels,
+            "resistance": resistance_levels,
             "signal": signal,
-            "target": float(target)
+            "target": target
         }
 
     except Exception as e:
         print(f"❌ Error analyzing {ticker}: {e}")
         return None
-
